@@ -49,20 +49,6 @@ class ApplianceDTO implements DTO
         ];
     }
 
-    // public function toJsonArray(): array
-    // {
-    //     return [
-    //         'id' => $this->id,
-    //         'categoryId' => $this->categoryId,
-    //         'name' => $this->name,
-    //         'powerRating' => $this->powerRating,
-    //         'usageHours' => $this->usageHours,
-    //         'units' => $this->units,
-    //         'createdAt' => $this->createdAt,
-    //         'updatedAt' => $this->updatedAt
-    //     ];
-    // }
-
     public function __toString(): string
     {
         return sprintf(

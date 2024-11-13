@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Data\ApplianceDTO;
 use App\Data\Mappers\ApplianceMapper;
-use App\Models\Appliance;
 use App\Services\ApplianceService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;

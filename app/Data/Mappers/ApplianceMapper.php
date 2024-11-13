@@ -37,7 +37,6 @@ class ApplianceMapper
      */
     public static function toModel(ApplianceDTO $applianceDTO): Appliance
     {
-        // If the DTO contains an ID, we are updating an existing appliance.
         if ($applianceDTO->getId()) {
             $appliance = Appliance::find($applianceDTO->getId());
 
@@ -45,11 +44,9 @@ class ApplianceMapper
                 throw new ModelNotFoundException("Appliance with ID {$applianceDTO->getId()} not found.");
             }
         } else {
-            // If no ID is set, create a new Appliance instance.
             $appliance = new Appliance();
         }
 
-        // Update the appliance attributes from the DTO
         $appliance->category_id = $applianceDTO->getCategoryId();
         $appliance->name = $applianceDTO->getName();
         $appliance->power_rating = $applianceDTO->getPowerRating();
@@ -69,7 +66,6 @@ class ApplianceMapper
      */
     public static function toJson(ApplianceDTO $applianceDTO): array
     {
-        // Assuming you have an Appliance model instance and eager load the category relation
         $appliance = Appliance::with('category')->find($applianceDTO->getId());
 
         if ($appliance) {
@@ -84,7 +80,6 @@ class ApplianceMapper
                 'updatedAt' => $appliance->updated_at,
             ];
 
-            // If category is eager loaded, include its details
             if ($appliance->category) {
                 $applianceData['category'] = [
                     'id' => $appliance->category->id,

@@ -33,7 +33,6 @@ class CategoryMapper
      */
     public static function toModel(CategoryDTO $categoryDTO): Category
     {
-        // If the DTO contains an ID, we are updating an existing category.
         if ($categoryDTO->getId()) {
             $category = Category::find($categoryDTO->getId());
 
@@ -41,11 +40,9 @@ class CategoryMapper
                 throw new ModelNotFoundException("Category with ID {$categoryDTO->getId()} not found.");
             }
         } else {
-            // If no ID is set, create a new Category instance.
             $category = new Category();
         }
 
-        // Update the category attributes from the DTO
         $category->name = $categoryDTO->getName();
         $category->created_at = $categoryDTO->getCreatedAt();
         $category->updated_at = $categoryDTO->getUpdatedAt();
