@@ -6,12 +6,29 @@
         "dev": "vite"
     },
     "devDependencies": {
+        "@vitejs/plugin-vue": "^5.1.4",
         "autoprefixer": "^10.4.20",
-        "axios": "^1.7.4",
+        "axios": "^1.7.7",
         "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.0",
+        "laravel-vite-plugin": "^1.0.5",
         "postcss": "^8.4.47",
-        "tailwindcss": "^3.4.13",
+        "postcss-import": "^16.1.0",
+        "tailwindcss": "^3.4.14",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "@vuelidate/core": "^2.0.3",
+        "@vuelidate/validators": "^2.0.4",
+        "chart.js": "^4.4.6",
+        "lodash": "^4.17.21",
+        "pinia": "^2.2.6",
+        "primeicons": "^7.0.0",
+        "primevue": "^4.2.1",
+        "sass": "^1.80.6",
+        "sass-loader": "^16.0.3",
+        "tailwindcss-primeui": "^0.3.4",
+        "vue": "^3.5.12",
+        "vue-router": "^4.4.5",
+        "vue-toastification": "^2.0.0-rc.5"
     }
 }
