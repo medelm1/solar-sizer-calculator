@@ -128,5 +128,5 @@ git commit -m "Add my feature"
 git push origin feature/my-feature
 ```
 5. Open a Pull Request and describe your changes.
-```bash
+
 Thank you for contributing!
