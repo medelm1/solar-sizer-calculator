@@ -1,38 +1,47 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from 'vue-router';
 import Menubar from 'primevue/Menubar';
 import Menu from 'primevue/menu';
 import Avatar from 'primevue/Avatar';
 import Logo from '@/assets/images/logo.png';
 
+const router = useRouter();
+
 const navbarMenuItems = ref([
     {
-        // The main landing page or overview of the user's activity, 
-        // providing quick access to recent calculations, saved settings, 
-        // and any ongoing projects.
         label: 'Dashboard',
     },
     {
-        // Direct access to the core tool for calculating solar panel requirements, 
-        // where users can input energy data.
         label: 'Calculator',
     },
     {
         label: 'Appliances',
         items: [
             {
-                // View, add, edit, or remove appliances from the list.
                 label: 'Manage Appliances'
             },
             {
-                // Organize appliances by category (e.g., heating, lighting, cooling).
-                label: 'Appliance Categories'
+                label: 'New Appliance',
+                command: () => {
+                    router.push({ name: 'account.create-appliance' });
+                }
+            },
+            {
+                label: 'Appliance Categories',
+                command: () => {
+                    router.push({ name: 'account.categories' });
+                }
+            },
+            {
+                label: 'New Category',
+                command: () => {
+                    router.push({ name: 'account.create-category' });
+                }
             }
         ]
     },
     {
-        // Access to detailed reports or results from past calculations, 
-        // including system size, panel count, energy savings, etc.
         label: 'Reports',
     },
 ]);
@@ -41,13 +50,9 @@ const profileMenu = ref();
 
 const profileMenuItems = ref([
     {
-        // Change user profile details, password, and account settings.
-        // A menu to configure personal preferences such as energy cost rate, 
-        // currency, location settings, and dark mode toggle.
         label: 'Account Settings',
     },
     {
-        // Option to confirm the logout action before being signed out of the dashboard.
         label: 'Logout',
     }
 ]);
