@@ -10,9 +10,19 @@ export default {
             name: 'account.welcome',
         },
         {
+            path: 'appliances',
+            component: () => import('@/views/dashboard/appliance/ListAppliancesView.vue'),
+            name: 'account.appliances',
+        },
+        {
             path: 'appliances/create',
             component: () => import('@/views/dashboard/appliance/CreateApplianceView.vue'),
             name: 'account.create-appliance',
+        },
+        {
+            path: 'appliances/edit/:applianceId',
+            component: () => import('@/views/dashboard/appliance/EditApplianceView.vue'),
+            name: 'account.edit-appliance',
         },
         {
             path: 'categories',

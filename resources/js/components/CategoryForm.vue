@@ -1,11 +1,13 @@
 <script setup> 
 import { reactive, watch, defineEmits, defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 import { useVuelidate } from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
 
+const router = useRouter();
 const emit = defineEmits(['submit']);
 const props = defineProps({
     formState: {
@@ -52,6 +54,7 @@ watch(
         </Message>
     </div>
     <div>
-        <Button label="Save" outlined severity="secondary" @click="handleSaveChanges"></Button>
+        <Button label="Save" outlined severity="secondary" class="me-2" @click="handleSaveChanges"></Button>
+        <Button label="Cancel" outlined severity="secondary" @click="async () => await router.push({ name: 'account.categories' })"></Button>
     </div>
 </template>

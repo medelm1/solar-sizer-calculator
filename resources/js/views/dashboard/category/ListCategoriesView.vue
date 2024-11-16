@@ -31,6 +31,10 @@ const handleDeleteCategory = (categoryId) => {
 
 </script>
 <template>
+    <div class="flex gap-2 mb-4">
+        <Button label="New Category" size="small" outlined severity="secondary" icon="pi pi-plus" @click="async () => await router.push({ name: 'account.create-category' })"></Button>
+    </div>
+
     <DataTable :value="categoryStore.categories" dataKey="id" stripedRows>
         <Column>
             <template #header>

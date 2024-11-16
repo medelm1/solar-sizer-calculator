@@ -9,22 +9,18 @@ export default {
         this.appliances.push(appliance);
     },
 
-    // updateAppliance(updatedAppliance) {
-    //     const idx = _.findIndex(this.appliances, { id: updatedAppliance.id });
+    updateAppliance(updatedAppliance) {
+        const idx = _.findIndex(this.appliances, { id: updatedAppliance.id });
 
-    //     if (idx !== -1) {
-    //         this.appliances.splice(idx, 1, updatedAppliance);
-    //     } else {
-    //         console.error('Appliance not found');
-    //     }
-    // },
+        if (idx !== -1) {
+            this.appliances.splice(idx, 1, updatedAppliance);
+        } else {
+            console.error('Appliance not found');
+        }
+    },
 
-    // removeAppliance(applianceId) {
-    //     _.remove(this.appliances, appliance => appliance.id === applianceId);
-    // },
-
-    // getApplianceById(applianceId) {
-    //     const appliance = _.find(this.appliances, { id: applianceId });
-    //     return appliance || null;
-    // }
+    removeAppliance(applianceId) {
+        _.remove(this.appliances, appliance => appliance.id === applianceId);
+    },
+    
 };

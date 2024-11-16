@@ -10,15 +10,15 @@ async function fetchAll() {
     }
 }
 
-// async function fetch(applianceId) {
-//     try {
-//         return await api.get(`/api/appliances/${applianceId}`);
+async function fetch(applianceId) {
+    try {
+        return await api.get(`/api/appliances/${applianceId}`);
 
-//     } catch (error) {
-//         console.error('Error attempting to fetch the appliance:', error);
-//         throw error;
-//     } 
-// }
+    } catch (error) {
+        console.error('Error attempting to fetch the appliance:', error);
+        throw error;
+    } 
+}
 
 async function create(payload) {
     try {
@@ -30,30 +30,30 @@ async function create(payload) {
     }
 }
 
-// async function edit(payload, applianceId) {
-//     try {
-//         return await api.put(`/api/appliances/${applianceId}`, payload);
+async function edit(payload, applianceId) {
+    try {
+        return await api.put(`/api/appliances/${applianceId}`, payload);
 
-//     } catch (error) {
-//         console.error('Error while attempting to edit the appliance:', error);
-//         throw error;
-//     }
-// }
+    } catch (error) {
+        console.error('Error while attempting to edit the appliance:', error);
+        throw error;
+    }
+}
 
-// async function remove(applianceId) {
-//     try {
-//         await api.del(`/api/appliances/${applianceId}`);
+async function remove(applianceId) {
+    try {
+        await api.del(`/api/appliances/${applianceId}`);
         
-//     } catch (error) {
-//         console.error('Error while attempting to delete the appliance:', error);
-//         throw error;
-//     }
-// }
+    } catch (error) {
+        console.error('Error while attempting to delete the appliance:', error);
+        throw error;
+    }
+}
 
 export default {
     fetchAll,
-    // fetch,
+    fetch,
     create,
-    // edit,
-    // remove,
+    edit,
+    remove,
 };

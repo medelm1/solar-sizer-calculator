@@ -19,12 +19,9 @@ const navbarMenuItems = ref([
         label: 'Appliances',
         items: [
             {
-                label: 'Manage Appliances'
-            },
-            {
-                label: 'New Appliance',
+                label: 'Manage Appliances',
                 command: () => {
-                    router.push({ name: 'account.create-appliance' });
+                    router.push({ name: 'account.appliances' });
                 }
             },
             {
@@ -33,12 +30,6 @@ const navbarMenuItems = ref([
                     router.push({ name: 'account.categories' });
                 }
             },
-            {
-                label: 'New Category',
-                command: () => {
-                    router.push({ name: 'account.create-category' });
-                }
-            }
         ]
     },
     {
