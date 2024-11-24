@@ -14,21 +14,18 @@ const navbarMenuItems = ref([
     },
     {
         label: 'Calculator',
+        command: () => router.push({ name: 'account.calculator' }),
     },
     {
         label: 'Appliances',
         items: [
             {
                 label: 'Manage Appliances',
-                command: () => {
-                    router.push({ name: 'account.appliances' });
-                }
+                command: () => router.push({ name: 'account.appliances' })
             },
             {
                 label: 'Appliance Categories',
-                command: () => {
-                    router.push({ name: 'account.categories' });
-                }
+                command: () => router.push({ name: 'account.categories' })
             },
         ]
     },

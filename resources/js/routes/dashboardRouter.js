@@ -38,6 +38,11 @@ export default {
             path: 'categories/edit/:categoryId',
             component: () => import('@/views/dashboard/category/EditCategoryView.vue'),
             name: 'account.edit-category',
+        },
+        {
+            path: 'calculator',
+            component: () => import('@/views/dashboard/Calculator.vue'),
+            name: 'account.calculator',
         }
     ]
 };
