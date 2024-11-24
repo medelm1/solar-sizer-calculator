@@ -8,7 +8,7 @@ import Button from 'primevue/button';
 import Message from 'primevue/message';
 
 const router = useRouter();
-const emit = defineEmits(['submit']);
+const emit = defineEmits(['submit', 'cancel']);
 const props = defineProps({
     formState: {
         type: Object,
@@ -35,6 +35,10 @@ const handleSaveChanges = async () => {
     }
 };
 
+const handleCancel = () => {
+    emit('cancel');
+};
+
 // Watch for changes in formState prop and update local state
 watch(
     () => props.formState,
@@ -55,6 +59,6 @@ watch(
     </div>
     <div>
         <Button label="Save" outlined severity="secondary" class="me-2" @click="handleSaveChanges"></Button>
-        <Button label="Cancel" outlined severity="secondary" @click="async () => await router.push({ name: 'account.categories' })"></Button>
+        <Button label="Cancel" outlined severity="secondary" @click="handleCancel"></Button>
     </div>
 </template>

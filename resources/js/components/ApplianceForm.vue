@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, defineEmits, watch } from 'vue';
-import { useRouter } from 'vue-router';
 import { useVuelidate } from '@vuelidate/core';
 import { required, numeric, helpers } from '@vuelidate/validators';
 import InputText from 'primevue/inputtext';
@@ -8,10 +7,9 @@ import InputNumber from 'primevue/inputnumber';
 import Select from 'primevue/select';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
-import { useCategoryStore } from '@/stores';
+import { useCategoryStore, useCategoryFormDialogStore } from '@/stores';
 
-const router = useRouter();
-const emit = defineEmits(['submit']);
+const emit = defineEmits(['submit', 'cancel']);
 const props = defineProps({
     formState: {
         type: Object,
@@ -25,6 +23,7 @@ const props = defineProps({
     }
 });
 const categoryStore = useCategoryStore();
+const categoryFormDialogStore = useCategoryFormDialogStore();
 
 let state = reactive({
     name: props.formState.name,
@@ -59,6 +58,10 @@ async function handleSaveChanges() {
     if (isValid) {
         emit('submit', state);
     }
+}
+
+function handleCancel() {
+    emit('cancel');
 }
 
 // Watch for changes in formState prop and update local state
@@ -99,7 +102,15 @@ watch(
             </template>
             <template #footer>
                 <div class="flex p-3">
-                    <Button label="Add New" fluid severity="secondary" outlined size="small" icon="pi pi-plus"></Button>
+                    <Button 
+                        label="Add New" 
+                        fluid 
+                        severity="secondary" 
+                        outlined 
+                        size="small" 
+                        icon="pi pi-plus"
+                        @click="() => categoryFormDialogStore.open()"
+                    ></Button>
                 </div>
             </template>
         </Select>
@@ -153,6 +164,6 @@ watch(
     </div>
     <div>
         <Button label="Save" outlined severity="secondary" class="me-2" @click="handleSaveChanges"></Button>
-        <Button label="Cancel" outlined severity="secondary" @click="async () => await router.push({ name: 'account.appliances' })"></Button>
+        <Button label="Cancel" outlined severity="secondary" @click="handleCancel"></Button>
     </div>
 </template>

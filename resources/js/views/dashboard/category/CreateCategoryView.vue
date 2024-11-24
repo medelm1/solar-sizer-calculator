@@ -22,5 +22,5 @@ async function handleSubmit(category) {
 </script>
 
 <template>
-    <CategoryForm @submit="handleSubmit" />
+    <CategoryForm @submit="handleSubmit" @cancel="async () => await router.push({ name: 'account.categories' })" />
 </template>

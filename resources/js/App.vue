@@ -3,6 +3,7 @@ import { onMounted } from "vue";
 import { useApplianceStore, useCategoryStore } from "./stores";
 import { applianceService, categoryService } from '@/services';
 import ConfirmationDialog from '@/components/dialogs/ConfirmationDialog.vue';
+import CategoryFormDialog from '@/components/dialogs/CategoryFormDialog.vue';
 
 const applianceStore = useApplianceStore();
 const categoryStore = useCategoryStore();
@@ -30,5 +31,6 @@ onMounted(async () => {
 </script>
 <template>
     <ConfirmationDialog />
+    <CategoryFormDialog />
     <router-view></router-view>
 </template>

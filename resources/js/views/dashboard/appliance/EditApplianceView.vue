@@ -46,5 +46,9 @@ async function handleSubmit(appliance) {
 
 </script>
 <template>
-    <ApplianceForm @submit="handleSubmit" :formState="formState" />
+    <ApplianceForm 
+        @submit="handleSubmit" 
+        @cancel="async () => await router.push({ name: 'account.appliances' })"
+        :formState="formState" 
+    />
 </template>
