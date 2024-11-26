@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplianceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/appliances', [ApplianceController::class, 'index']);
@@ -16,3 +17,7 @@ Route::post('/categories', [CategoryController::class, 'store']);
 Route::put('/categories/{id}', [CategoryController::class, 'update']);
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
+Route::get('/settings', [SettingsController::class, 'index']);
+Route::get('/settings/{key}', [SettingsController::class, 'show']);
+Route::put('/settings', [SettingsController::class, 'updateMultiple']);
+Route::put('/settings/{key}', [SettingsController::class, 'update']);
