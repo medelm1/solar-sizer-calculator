@@ -99,9 +99,21 @@ php artisan key:generate
 php artisan migrate
 ```
 
+-Make sure the 'pdo_mysql' extension is enabled in your php.ini file: 
+```bash
+php --ini (This shows the filepath to the .ini file.)
+```
+-Within the .ini file, look for the line ';pdo_mysql' and delete the semicoln. The save the file and restart your terminal.
+-Verify installation of the 'pdo_mysql' extension:
+```bash
+php -m
+```
+-fileinfo should be listed in the output.
+
+
 6. Seed the Database
 ```bash
-php artisan db:seed --class=SettingsSeeder
+php artisan db:seed --class=DatabaseSeeder
 ```
 
 7. Install Frontend Dependencies:
