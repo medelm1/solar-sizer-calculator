@@ -68,8 +68,20 @@ cd solar-sizer-calculator
 
 2. Install Backend Dependencies:
 ```bash
-composer install
+composer install 
 ```
+
+
+-Make sure the 'fileinfo' extension is enabled in your php.ini file: 
+```bash
+php --ini (This shows the filepath to the .ini file.)
+```
+-Within the .ini file, look for the line ';extension=fileinfo' and delete the semicoln. The save the file and restart your terminal.
+-Verify installation of the 'fileinfo' extension:
+```bash
+php -m
+```
+-fileinfo should be listed in the output.
 
 3. Set Up Environment:
 Copy `.env.example` to `.env` and update the database configuration and other necessary settings.
